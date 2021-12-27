@@ -88,8 +88,6 @@ if __name__ == "main":
 
     parser = argparse.ArgumentParser()
 
-    parser.
-
     args = parser.parse_args()
 
 
