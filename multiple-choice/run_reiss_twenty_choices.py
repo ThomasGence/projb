@@ -274,7 +274,7 @@ def main():
         raw_datasets = load_dataset(extension, data_files=data_files, cache_dir=model_args.cache_dir)
     else:
         # Downloading and loading the swag dataset from the hub.
-        raw_datasets = load_dataset("swag", "regular", cache_dir=model_args.cache_dir)
+        raw_datasets = load_dataset("wanagenst/reiss-twenty-choices", cache_dir=model_args.cache_dir)
     # See more about loading any type of standard or custom dataset (from files, python dict, pandas DataFrame, etc) at
     # https://huggingface.co/docs/datasets/loading_datasets.html.
 
@@ -306,7 +306,7 @@ def main():
     )
 
     # When using your own dataset or a different dataset from swag, you will probably need to change this.
-    ending_names = [f"ending{i}" for i in range(4)]
+    ending_names = [f"ending{i}" for i in range(20)]
     context_name = "sent1"
     question_header_name = "sent2"
 
@@ -328,7 +328,7 @@ def main():
 
     # Preprocessing the datasets.
     def preprocess_function(examples):
-        first_sentences = [[context] * 4 for context in examples[context_name]]
+        first_sentences = [[context] * 20 for context in examples[context_name]]
         question_headers = examples[question_header_name]
         second_sentences = [
             [f"{header} {examples[end][i]}" for end in ending_names] for i, header in enumerate(question_headers)
@@ -347,7 +347,7 @@ def main():
             padding="max_length" if data_args.pad_to_max_length else False,
         )
         # Un-flatten
-        return {k: [v[i : i + 4] for i in range(0, len(v), 4)] for k, v in tokenized_examples.items()}
+        return {k: [v[i : i + 20] for i in range(0, len(v), 20)] for k, v in tokenized_examples.items()}
 
     if training_args.do_train:
         if "train" not in raw_datasets:

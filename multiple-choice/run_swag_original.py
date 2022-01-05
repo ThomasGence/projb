@@ -388,11 +388,16 @@ def main():
     def compute_metrics(eval_predictions):
         predictions, label_ids = eval_predictions
         preds = np.argmax(predictions, axis=1)
-        acc = accuracy_score(label_ids, preds, normalize=True, sample_weight=None)
-        rec = recall_score(label_ids, preds, average='samples')
-        pre = precision_score(label_ids, preds, average='samples')
-        f1 = f1_score(label_ids, preds, average='samples')
-        return {"accuracy": acc, "precision":pre, "recall":rec, "f1":f1}
+        return {"accuracy": (preds == label_ids).astype(np.float32).mean().item()}
+
+#    def compute_metrics(eval_predictions):
+#        predictions, label_ids = eval_predictions
+#        preds = np.argmax(predictions, axis=1)
+#        acc = accuracy_score(label_ids, preds, normalize=True, sample_weight=None)
+#        rec = recall_score(label_ids, preds, average='samples')
+#        pre = precision_score(label_ids, preds, average='samples')
+#        f1 = f1_score(label_ids, preds, average='samples')
+#        return {"accuracy": acc, "precision":pre, "recall":rec, "f1":f1}
 
     # Initialize our Trainer
     trainer = Trainer(
