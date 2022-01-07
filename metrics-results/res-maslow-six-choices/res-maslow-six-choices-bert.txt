@@ -1,0 +1,84 @@
+---
+language:
+- en
+license: apache-2.0
+tags:
+- generated_from_trainer
+datasets:
+- swag
+metrics:
+- accuracy
+model-index:
+- name: maslow_six_choices_bert
+  results:
+  - task:
+      name: Multiple Choice
+      type: multiple-choice
+    dataset:
+      name: SWAG
+      type: swag
+      args: regular
+    metrics:
+    - name: Accuracy
+      type: accuracy
+      value: 0.5129525168426524
+---
+
+<!-- This model card has been generated automatically according to the information the Trainer had access to. You
+should probably proofread and complete it, then remove this comment. -->
+
+# maslow_six_choices_bert
+
+This model is a fine-tuned version of [bert-base-uncased](https://huggingface.co/bert-base-uncased) on the "wanagenst/maslow-six-choices" dataset.
+It achieves the following results on the evaluation set:
+- Loss: 0.9581
+- Accuracy: 0.5130
+- Report:               precision    recall  f1-score   support
+
+    	    ending0       0.81       0.78      0.79      3248
+   	    ending1       0.42       0.44      0.43       416
+   	    ending2       0.45       0.57      0.50       522
+	    ending3       0.46       0.49      0.47       208
+	    ending4       0.43       0.30      0.35       332
+	    ending5       0.45       0.50      0.47       568
+ 
+	    accuracy                           0.66      5294
+	    macro avg     0.50       0.51      0.50      5294
+	    weighted avg  0.67       0.66      0.66      5294
+
+
+## Model description
+
+More information needed
+
+## Intended uses & limitations
+
+More information needed
+
+## Training and evaluation data
+
+More information needed
+
+## Training procedure
+
+### Training hyperparameters
+
+The following hyperparameters were used during training:
+- learning_rate: 5e-05
+- train_batch_size: 32
+- eval_batch_size: 32
+- seed: 42
+- optimizer: Adam with betas=(0.9,0.999) and epsilon=1e-08
+- lr_scheduler_type: linear
+- num_epochs: 3.0
+
+### Training results
+
+
+
+### Framework versions
+
+- Transformers 4.16.0.dev0
+- Pytorch 1.10.1+cu102
+- Datasets 1.17.0
+- Tokenizers 0.10.3
