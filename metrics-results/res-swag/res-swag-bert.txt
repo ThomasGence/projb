@@ -1,0 +1,82 @@
+---
+language:
+- en
+license: apache-2.0
+tags:
+- generated_from_trainer
+datasets:
+- swag
+metrics:
+- accuracy
+model-index:
+- name: swag_bert
+  results:
+  - task:
+      name: Multiple Choice
+      type: multiple-choice
+    dataset:
+      name: SWAG
+      type: swag
+      args: regular
+    metrics:
+    - name: Accuracy
+      type: accuracy
+      value: 0.8021362917358869
+---
+
+<!-- This model card has been generated automatically according to the information the Trainer had access to. You
+should probably proofread and complete it, then remove this comment. -->
+
+# swag_bert
+
+This model is a fine-tuned version of [bert-base-uncased](https://huggingface.co/bert-base-uncased) on the SWAG dataset.
+It achieves the following results on the evaluation set:
+- Loss: 0.7598
+- Accuracy: 0.8021
+- Report:               precision    recall  f1-score   support
+
+     ending0       0.81      0.81      0.81      4933
+     ending1       0.80      0.79      0.80      5029
+     ending2       0.80      0.80      0.80      5038
+     ending3       0.80      0.81      0.81      5006
+
+    accuracy                           0.80     20006
+   macro avg       0.80      0.80      0.80     20006
+weighted avg       0.80      0.80      0.80     20006
+
+
+## Model description
+
+More information needed
+
+## Intended uses & limitations
+
+More information needed
+
+## Training and evaluation data
+
+More information needed
+
+## Training procedure
+
+### Training hyperparameters
+
+The following hyperparameters were used during training:
+- learning_rate: 5e-05
+- train_batch_size: 32
+- eval_batch_size: 32
+- seed: 42
+- optimizer: Adam with betas=(0.9,0.999) and epsilon=1e-08
+- lr_scheduler_type: linear
+- num_epochs: 3.0
+
+### Training results
+
+
+
+### Framework versions
+
+- Transformers 4.16.0.dev0
+- Pytorch 1.10.1+cu102
+- Datasets 1.17.0
+- Tokenizers 0.10.3
