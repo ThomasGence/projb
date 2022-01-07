@@ -46,7 +46,7 @@ from transformers.tokenization_utils_base import PreTrainedTokenizerBase
 from transformers.trainer_utils import get_last_checkpoint
 from transformers.utils import check_min_version
 
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, balanced_accuracy_score, classification_report
 
 # Will error if the minimal version of Transformers is not installed. Remove at your own risks.
 check_min_version("4.16.0.dev0")
@@ -383,16 +383,18 @@ def main():
         if data_args.pad_to_max_length
         else DataCollatorForMultipleChoice(tokenizer=tokenizer, pad_to_multiple_of=8 if training_args.fp16 else None)
     )
-
+  
     # Metric
     def compute_metrics(eval_predictions):
         predictions, label_ids = eval_predictions
         preds = np.argmax(predictions, axis=1)
-        acc = accuracy_score(label_ids, preds, normalize=True, sample_weight=None)
-        rec = recall_score(label_ids, preds, average='samples')
-        pre = precision_score(label_ids, preds, average='samples')
-        f1 = f1_score(label_ids, preds, average='samples')
-        return {"accuracy": acc, "precision":pre, "recall":rec, "f1":f1}
+        acc = balanced_accuracy_score(label_ids, preds)
+        rep = classification_report(label_ids, preds,target_names=ending_names)
+        print(rep)
+#        rec = recall_score(label_ids, preds, average='samples')
+#        pre = precision_score(label_ids, preds, average='samples')
+#        f1 = f1_score(label_ids, preds, average='samples')
+        return {"accuracy": acc, "report":rep}
 
     # Initialize our Trainer
     trainer = Trainer(
