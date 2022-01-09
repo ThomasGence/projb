@@ -1,0 +1,98 @@
+---
+language:
+- en
+license: apache-2.0
+tags:
+- generated_from_trainer
+datasets:
+- swag
+metrics:
+- accuracy
+model-index:
+- name: reiss_twenty_choices_bert
+  results:
+  - task:
+      name: Multiple Choice
+      type: multiple-choice
+    dataset:
+      name: SWAG
+      type: swag
+      args: regular
+    metrics:
+    - name: Accuracy
+      type: accuracy
+      value: 0.25088708113445735
+---
+
+<!-- This model card has been generated automatically according to the information the Trainer had access to. You
+should probably proofread and complete it, then remove this comment. -->
+
+# reiss_twenty_choices_bert
+
+This model is a fine-tuned version of [bert-base-uncased](https://huggingface.co/bert-base-uncased) on the "wanagent/reiss-twenty-choices" dataset.
+It achieves the following results on the evaluation set:
+- Loss: 1.3063
+- Accuracy: 0.2509
+- Report:                precision    recall  f1-score   support
+
+	     ending0        0.78      0.84      0.81      3602
+	     ending1        0.15      0.05      0.08        99
+	     ending2        0.00      0.00      0.00         5
+	     ending3        0.40      0.50      0.45       139
+	     ending4        0.38      0.29      0.33       184
+	     ending5        0.28      0.25      0.26       134
+	     ending6        0.37      0.47      0.42       173
+	     ending7        0.47      0.60      0.53       140
+	     ending8        0.38      0.32      0.35        97
+	     ending9        0.14      0.04      0.06        27
+	     ending10       0.17      0.04      0.06        26
+	     ending11       0.18      0.05      0.08        76
+	     ending12       0.26      0.12      0.17       137	
+	     ending13       0.04      0.02      0.03        51
+	     ending14       0.35      0.18      0.24        34
+	     ending15       0.38      0.44      0.40        82
+	     ending16       0.36      0.35      0.35       134
+	     ending17       0.17      0.03      0.06        30
+	     ending18       0.16      0.10      0.12       120
+	     ending19       0.33      0.33      0.33       128
+
+	     accuracy                           0.66      5418
+	     macro avg      0.29      0.25      0.26      5418
+	     weighted avg   0.62      0.66      0.64      5418
+
+
+## Model description
+
+More information needed
+
+## Intended uses & limitations
+
+More information needed
+
+## Training and evaluation data
+
+More information needed
+
+## Training procedure
+
+### Training hyperparameters
+
+The following hyperparameters were used during training:
+- learning_rate: 5e-05
+- train_batch_size: 12
+- eval_batch_size: 32
+- seed: 42
+- optimizer: Adam with betas=(0.9,0.999) and epsilon=1e-08
+- lr_scheduler_type: linear
+- num_epochs: 3.0
+
+### Training results
+
+
+
+### Framework versions
+
+- Transformers 4.16.0.dev0
+- Pytorch 1.10.1+cu102
+- Datasets 1.17.0
+- Tokenizers 0.10.3
