@@ -1,0 +1,87 @@
+---
+language:
+- en
+license: mit
+tags:
+- generated_from_trainer
+datasets:
+- swag
+metrics:
+- accuracy
+model-index:
+- name: plutchik_nine_choices_roberta
+  results:
+  - task:
+      name: Multiple Choice
+      type: multiple-choice
+    dataset:
+      name: SWAG
+      type: swag
+      args: regular
+    metrics:
+    - name: Accuracy
+      type: accuracy
+      value: 0.2958920134483324
+---
+
+<!-- This model card has been generated automatically according to the information the Trainer had access to. You
+should probably proofread and complete it, then remove this comment. -->
+
+# plutchik_nine_choices_roberta
+
+This model is a fine-tuned version of [roberta-base](https://huggingface.co/roberta-base) on the "wanagenst/plutchik-nine-choices" dataset.
+It achieves the following results on the evaluation set:
+- Loss: 1.7063
+- Accuracy: 0.2959
+- Report:               precision    recall  f1-score   support
+
+	     ending0       0.64      0.73      0.68      2137
+	     ending1       0.24      0.21      0.22       499
+	     ending2       0.33      0.28      0.31      1442
+	     ending3       0.18      0.02      0.04       430
+	     ending4       0.28      0.25      0.26       659
+	     ending5       0.35      0.60      0.44      1489
+	     ending6       0.26      0.35      0.30       678
+	     ending7       0.24      0.22      0.23      1010
+	     ending8       0.21      0.00      0.01       762
+
+	     accuracy                          0.40      9106
+	     macro avg     0.30      0.30      0.28      9106
+	     weighted avg  0.37      0.40      0.36      9106
+
+
+## Model description
+
+More information needed
+
+## Intended uses & limitations
+
+More information needed
+
+## Training and evaluation data
+
+More information needed
+
+## Training procedure
+
+### Training hyperparameters
+
+The following hyperparameters were used during training:
+- learning_rate: 5e-05
+- train_batch_size: 24
+- eval_batch_size: 24
+- seed: 42
+- optimizer: Adam with betas=(0.9,0.999) and epsilon=1e-08
+- lr_scheduler_type: linear
+- num_epochs: 3.0
+
+### Training results
+
+
+
+### Framework versions
+
+- Transformers 4.16.0.dev0
+- Pytorch 1.10.1+cu102
+- Datasets 1.17.0
+- Tokenizers 0.10.3

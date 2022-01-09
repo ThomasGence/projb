@@ -1,0 +1,80 @@
+---
+language:
+- en
+license: mit
+tags:
+- generated_from_trainer
+datasets:
+- swag
+metrics:
+- accuracy
+model-index:
+- name: plutchik_two_choices_roberta
+  results:
+  - task:
+      name: Multiple Choice
+      type: multiple-choice
+    dataset:
+      name: SWAG
+      type: swag
+      args: regular
+    metrics:
+    - name: Accuracy
+      type: accuracy
+      value: 0.7315185102177717
+---
+
+<!-- This model card has been generated automatically according to the information the Trainer had access to. You
+should probably proofread and complete it, then remove this comment. -->
+
+# plutchik_two_choices_roberta
+
+This model is a fine-tuned version of [roberta-base](https://huggingface.co/roberta-base) on the "wanagenst/plutchik-stories" dataset.
+It achieves the following results on the evaluation set:
+- Loss: 0.3615
+- Accuracy: 0.7315
+- Report:               precision    recall  f1-score   support
+
+    	     ending0       0.91      0.93      0.92     33521
+    	     ending1       0.60      0.54      0.57      6951
+
+  	     accuracy                          0.86     40472
+	     macro avg     0.75      0.73      0.74     40472
+	     weighted avg  0.85      0.86      0.86     40472
+
+
+## Model description
+
+More information needed
+
+## Intended uses & limitations
+
+More information needed
+
+## Training and evaluation data
+
+More information needed
+
+## Training procedure
+
+### Training hyperparameters
+
+The following hyperparameters were used during training:
+- learning_rate: 5e-05
+- train_batch_size: 112
+- eval_batch_size: 112
+- seed: 42
+- optimizer: Adam with betas=(0.9,0.999) and epsilon=1e-08
+- lr_scheduler_type: linear
+- num_epochs: 3.0
+
+### Training results
+
+
+
+### Framework versions
+
+- Transformers 4.16.0.dev0
+- Pytorch 1.10.1+cu102
+- Datasets 1.17.0
+- Tokenizers 0.10.3
